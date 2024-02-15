@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS pills_db;
+
+CREATE DATABASE pills_db;
