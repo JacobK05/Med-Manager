@@ -1,0 +1,5 @@
+DROP DATABASE IF EXISTS Mediction_db;
+CREATE DATABASE Mediction_db;
+
+
+
