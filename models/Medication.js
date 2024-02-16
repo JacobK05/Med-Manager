@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class tblMediction extends Model {}
+class Medication extends Model {}
 
-tblMediction.init(
+Medication.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -15,15 +15,15 @@ tblMediction.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Douzeeg  : {
+    dosage  : {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    ferqunsy: {
+    frequency: {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    Status: {
+    status: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -34,7 +34,7 @@ tblMediction.init(
     userId: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'gallery',
+        model: 'user',
         key: 'id',
       },
     },
@@ -43,8 +43,8 @@ tblMediction.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'painting',
+    modelName: 'medication',
   }
 );
 
-module.exports = tblMediction;
+module.exports = Medication;
