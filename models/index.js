@@ -1,16 +1,17 @@
-const tblMediction = require('./tblMediction');
-const tblUser = require('./tbluser');
+const Medication = require('./Medication');
+const User = require('./User.js');
 
 
+Medication.belongsTo(User, {
+  foreignKey: 'userId',
+});
 
-tblUser.hasMany(tblMediction, {
+User.hasMany(Medication, {
   foreignKey: 'userId',
   onDelete: 'CASCADE',
 });
 
-tblMediction.belongsTo(tblUser, {
-  foreignKey: 'userId',
-});
 
 
-module.exports = {tblMediction, tblUser };
+
+module.exports = {Medication, User };
