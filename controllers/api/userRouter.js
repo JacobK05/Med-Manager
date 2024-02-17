@@ -1,13 +1,13 @@
 const router = require('express').Router();
 // use object destructuring to import our two models by name
-const { user } = require('../../models');
+const { User } = require('../../models');
 
 // GET all user
 router.get('/', async (req, res) => {
   try {
    
-    const userData = await user.findAll({
-      include: [{ model: user }],
+    const userData = await User.findAll({
+      include: [{ model: User }],
     });
     res.status(200).json(userData);
   } catch (err) {
@@ -19,8 +19,8 @@ router.get('/', async (req, res) => {
 // GET a single user by user ID
 router.get('/:id', async (req, res) => {
   try {
-    const userData = await user.findByPk(req.params.id, {
-      include: [{ model: user }],
+    const userData = await User.findByPk(req.params.id, {
+      include: [{ model: User }],
     });
 
     if (!userData) {
@@ -38,8 +38,8 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
 
-    const locationData = await user.create({
-      // user: req.body.user_id,
+    const locationData = await User.create({
+      // user: req.body.userId,
     });
     res.status(200).json(locationData);
   } catch (err) {
@@ -50,7 +50,7 @@ router.post('/', async (req, res) => {
 // DELETE a user
 router.delete('/:id', async (req, res) => {
   try {
-    const userData = await user.destroy({
+    const userData = await User.destroy({
       where: {
         id: req.params.id,
       },
