@@ -11,7 +11,7 @@ Medication.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    pill: {
+    genericName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -24,7 +24,8 @@ Medication.init(
       allowNull: false,
     },
     status: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM,
+      values: ['used', 'no used'],
       allowNull: false,
     },
     description: {
