@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
   try {
 
     const locationData = await user.create({
-      // user: req.body.user_id,
+      // user: req.body.userId,
     });
     res.status(200).json(locationData);
   } catch (err) {
