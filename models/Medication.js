@@ -25,12 +25,16 @@ Medication.init(
     },
     status: {
       type: DataTypes.ENUM,
-      values: ['used', 'no used'],
+      values: ['taken', 'no taken'],
       allowNull: false,
+      defaultValue: 'no taken',
     },
     description: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    noteFromUser: {
+      type: DataTypes.STRING,
     },
     userId: {
       type: DataTypes.INTEGER,
@@ -42,6 +46,7 @@ Medication.init(
   },
   {
     sequelize,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'medication',

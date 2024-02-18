@@ -11,4 +11,4 @@ User.hasMany(Medication, {
 });
 
 
-module.exports = {Medication, User };
+module.exports = { Medication, User };
