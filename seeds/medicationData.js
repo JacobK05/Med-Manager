@@ -1,3 +1,6 @@
+const { Medication } = require('../models');
+
+const medicationData =
 [
     {
       "genericName": "Aspirin",
@@ -16,3 +19,6 @@
     }
   ]
   
+  const seedMedication = () => Medication.bulkCreate(medicationData);
+
+  module.exports = seedMedication;

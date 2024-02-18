@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedManager</title>
+    <link rel="stylesheet" type="text/css" href="/css/jass.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
+
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/">Dashboard</a>
+      {{#if loggedIn}}
+        <button id="logout" class="btn-no-style">Logout</button>
+      {{else}}
+      <!-- render login "click" with redirect to login js -->
+        <a href="/login">Login</a>
+      {{/if}}
+    </nav>
+    <header>
+      <h1 class="funky_text">The Medication Manager</h1>
+    </header>
+    <main>
+    <!-- layout is the outer framework for the page which also includes special body (a property)
+    where the triple curly braces means that the information will be provided as real/raw html -->
+
+<!-- this is temp code to test the view, it will be deleted and replaced with body -->
+        <section id="blog-post">
+          <p class="post-author">Posted by: Vicki Dunlop</p>
+          <p class="post-content">Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+        </section>
+        <section id="blog-post">
+          <p class="post-author">Posted by: Vicki Dunlop</p>
+          <p class="post-content">Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+        </section>
+        <div class="gallery">
+          {{{body}}}
+        </div>
+    </main>
+    <!-- this loggedIn came from the homepage render in the home-routes.js -->
+    {{#if loggedIn}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
+  </body>
+
+</html>

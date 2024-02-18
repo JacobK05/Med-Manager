@@ -1,7 +1,10 @@
-const router = require('express').Router();
+// Import just the router express
+const routes = require('express').Router();
 
+// Import the index.js from 'api' folder
 const apiRoutes = require('./api');
 
-router.use('/api', apiRoutes);
+// When a request is made to the /api route, it will be directed to the index.js in the 'api' folder.
+routes.use('/api', apiRoutes);
 
-module.exports = router;
+module.exports = routes;
