@@ -25,13 +25,12 @@ Medication.init(
     },
     status: {
       type: DataTypes.ENUM,
-      values: ['taken', 'no taken'],
+      values: ['taken', 'not-taken'],
       allowNull: false,
-      defaultValue: 'no taken',
+      defaultValue: 'not-taken',
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     noteFromUser: {
       type: DataTypes.STRING,
