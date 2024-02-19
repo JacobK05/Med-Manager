@@ -1,18 +1,22 @@
+
 [
     {
       "genericName": "Aspirin",
       "dosage": "1-80mg tab",
-      "frequency": "Daily"
+      "frequency": "Daily",
+      "userId": 1
     },
     {
       "genericName": "Vitamin D3",
       "dosage": "2-2000mcg tab",
-      "frequency": "Daily"
+      "frequency": "Daily",
+      "userId": 1
     },
     {
       "genericName": "Calcium",
       "dosage": "1-2000mg tab",
-      "frequency": "Daily"
+      "frequency": "Daily",
+      "userId": 1
     }
   ]
   

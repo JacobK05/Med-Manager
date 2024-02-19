@@ -1,5 +1,7 @@
 const path = require('path');
 const express = require('express');
+
+// Import express session
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
@@ -15,9 +17,9 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
 const sess = {
-  secret: 'Super secret secret',
+  secret: process.env.SESSION_SECRET,
   cookie: {
-    maxAge: 300000,
+    maxAge: 24 * 60 * 60 * 1000, // expires after 1 day
     httpOnly: true,
     secure: false,
     sameSite: 'strict',

@@ -1,0 +1,221 @@
+:root {
+    --primary: #7c93c3;
+    --secondary: #eef5ff;
+    --tertiary: #010e0b;
+    --quatrinary: #a25772;
+    --light: white;
+    --dark: #071952;
+    --error: rgb(228, 46, 1);
+    --border-radius: 0.3rem;
+  }
+  
+  body {
+    font-family: Arial;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: flex-start;
+    background-color: var(--quatrinary);
+  }
+  
+  a {
+    color: var(--dark);
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: inherit;
+  }
+  
+  header {
+    padding: 40px;
+    text-align: center;
+    background: var(--primary);
+    color: var(--light);
+  }
+  
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-direction: column;
+  }
+  
+  aside {
+    flex: 0;
+    background-color: var(--tertiary);
+    padding: 80px;
+    text-align: left;
+    color: var(--light);
+  }
+  
+  nav {
+    display: flex;
+    background-color: var(--primary);
+  }
+  
+  nav a {
+    color: white;
+    font-weight: bolder;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  nav a:hover {
+    color: var(--secondary);
+    background-color: var(--primary);
+  }
+  
+  .main_view {
+    flex: 4;
+    background-color: var(--light);
+    padding: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .funky_text {
+    text-shadow: 6px 6px 6px black;
+  
+  }
+  #blog-post {
+    flex: 1;
+    background-color: var(--light);
+    padding: 50px;
+    display: flex;
+    flex-flow: nowrap;
+    flex-direction: column;
+    /*justify-content: center;
+    align-items: center;*/
+    border: 20px double var(--primary);
+    border-radius: 10px;
+    margin: 50px;
+  }
+  .post-author {
+    color: var(--primary);
+    font-size: large;
+    font-weight: bolder;
+  }
+  
+  .post-content {
+    color: black;
+    font-size: medium;
+    height: auto;
+  }
+  .form-group2 {
+    display: inline;
+    width: 100%;
+    margin: 0.625rem 0;
+  }
+  
+  .btn-no-style {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 100%;
+    transition: color 0.1s;
+    margin-left: 16px;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .painting {
+    width: 50%;
+    background-color: var(--light);
+    box-shadow: 0 4px 8px 0 --secondary, 0 6px 20px 0 --secondary;
+    margin-bottom: 25px;
+  }
+  
+  .painting-details {
+    text-align: center;
+    padding: 10px 20px;
+    font-weight: bold;
+  }
+  
+  /* CARDS */
+  .card {
+    margin: 20px;
+    flex: 0 1 300px;
+    border: 7px double var(--dark);
+    border-radius: 10px;
+    background-color: var(--light);
+    color: var(--dark);
+  }
+  
+  .login-card {
+    margin: 50px;
+    flex: 1;
+    padding: 50px;
+    border: 20px double var(--primary);
+    background-color: var(--light);
+    color: var(--quatrinary);
+  
+  }
+  /* original   .login-card {
+    margin: 0 0 20px 0;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 5px;
+    border: 3px solid var(--dark);
+    border-radius: var(--border-radius);
+    border-style: double;
+    border-width: thick;
+    background-color: #577a7c;
+    color: var(--light);
+  }*/
+  .card header {
+    color: var(--light);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+    background-color: var(--tertiary);
+    padding: 0.625rem;
+    border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+  }
+  
+  .card-body {
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .gallery-name {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 5px var(--secondary);
+    border: 10px groove var(--light);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 100px;
+    padding-left: 100px;
+  }
+  
+  /* LAYOUT */
+  .container {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: flex-start;
+    align-items: center;
+  }
+  @mixin make-col-ready() {
+    // Add box sizing if only the grid is loaded
+    box-sizing: if(variable-exists(include-column-box-sizing) and $include-column-box-sizing, border-box, null);
+    // Prevent columns from becoming too narrow when at smaller grid tiers by
+    // always setting `width: 100%;`. This works because we set the width
+    // later on to override this initial width.
+    flex-shrink: 0;
+    width: 50%;
+    max-width: 100%; // Prevent `.col-auto`, `.col` (& responsive variants) from breaking out the grid
+    padding-right: calc(var(--#{$prefix}gutter-x) * .5); // stylelint-disable-line function-disallowed-list
+    padding-left: calc(var(--#{$prefix}gutter-x) * .5); // stylelint-disable-line function-disallowed-list
+    margin-top: var(--#{$prefix}gutter-y)
+  !important;}
