@@ -7,7 +7,7 @@ const { User } = require('../../models');
 // GET all user
 router.get('/', async (req, res) => {
   try {
-   
+   console.log("in single slash get");
     const userData = await User.findAll({
       include: [{ model: User }],
     });
@@ -39,10 +39,12 @@ router.get('/:id', async (req, res) => {
 // CREATE a new user
 router.post('/', async (req, res) => {
   try {
-
+console.log("in single slash post");
     const locationData = await User.create({
       email: req.body.email,
       password: req.body.password,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       // user: req.body.userId,
     });
 
@@ -50,10 +52,11 @@ router.post('/', async (req, res) => {
     // Login to Logout and vice versa
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_id = locationData.id;
       res.status(200).json(locationData);
     });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -78,7 +81,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 // Login
-// If a POST request is made to /api/users/login (from controllers/api, js code), 
+// If a POST request is made to /api/userRouter/login (from controllers/api, js code), 
 // the function checks to see if the user information matches the information in the database and 
 // logs the user in. 
 // If correct, the user ID and logged-in state are saved to the session within the request object.
@@ -110,6 +113,7 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_id - dbUserData.id;
       console.log(
         'File: user-routes.js ~ line 62 ~ req.session.save ~ req.session.cookie',
         req.session.cookie
@@ -126,8 +130,9 @@ router.post('/login', async (req, res) => {
 });
 
 // Logout.
-// If a POST request is made to /api/users/logout, the function checks the logged_in state in the request.session object and destroys that session if logged_in is true.
+// If a POST request is made to /api/userRouter/logout, the function checks the logged_in state in the request.session object and destroys that session if logged_in is true.
 router.post('/logout', (req, res) => {
+  console.log("in logout");
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();

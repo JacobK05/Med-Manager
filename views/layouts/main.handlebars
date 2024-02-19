@@ -1,63 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MedManager</title>
-    <link rel="stylesheet" type="text/css" href="/css/jass.css" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="jquery-3.7.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title> Medication Manager</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/css/jass.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/style.css" />
   </head>
-
-  <body>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/">Dashboard</a>
-      {{#if loggedIn}}
-        <button id="logout" class="btn-no-style">Logout</button>
-      {{else}}
-      <!-- render login "click" with redirect to login js -->
-        <a href="/login">Login</a>
-      {{/if}}
-    </nav>
-    <header>
-      <h1 class="funky_text">The Medication Manager</h1>
-    </header>
-    <main>
-    <!-- layout is the outer framework for the page which also includes special body (a property)
-    where the triple curly braces means that the information will be provided as real/raw html -->
-
-<!-- this is temp code to test the view, it will be deleted and replaced with body -->
-        <section id="blog-post">
-          <p class="post-author">Posted by: Vicki Dunlop</p>
-          <p class="post-content">Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.</p>
-        </section>
-        <section id="blog-post">
-          <p class="post-author">Posted by: Vicki Dunlop</p>
-          <p class="post-content">Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.</p>
-        </section>
-        <div class="gallery">
-          {{{body}}}
+  
+  <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <span role="img" aria-label="Pill"> 💊 </span>
+        <a class="navbar-brand" href="#"> Medication Manager </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+            {{#if logged_in}}
+            <a href="/profile">profile</a> |
+            <button class="no-button" id="logout">logout</button>
+            {{else}}
+            <a href="/login">login</a>
+            {{/if}}
+            </li>
+            </ul>
         </div>
-    </main>
-    <!-- this loggedIn came from the homepage render in the home-routes.js -->
-    {{#if loggedIn}}
-      <script src="/js/logout.js"></script>
+      </div>
+    </nav>
+    <div class="width-50%">
+      {{{body}}}
+    </div>
+        {{#if logged_in}}
+    <script src="/js/logout.js"></script>
     {{/if}}
   </body>
-
 </html>

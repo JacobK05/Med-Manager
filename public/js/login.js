@@ -10,7 +10,7 @@ const loginFormHandler = async (event) => {
       // this is client side js
       // this gets called when the user enters info in the login form handler
       // this api call gets processed by the router/controller called user-routes.js, api/controllers folder
-      const response = await fetch('/api/users/login', {
+      const response = await fetch('/api/userRouter/login', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
@@ -33,7 +33,7 @@ const loginFormHandler = async (event) => {
     const password = document.querySelector('#password-signup').value.trim();
   
     if (username && email && password) {
-      const response = await fetch('/api/users', {
+      const response = await fetch('/api/userRouter', {
         method: 'POST',
         body: JSON.stringify({ username, email, password }),
         headers: { 'Content-Type': 'application/json' },
