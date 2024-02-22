@@ -1,25 +1,13 @@
-/*const sequelize = require('../config/connection');
-const seedMedication = require('./medicationData');
-const seedUser = require('./userData');
-
-const seedAll = async () => {
-  await sequelize.sync({ force: true });
-
-  // seed User first so that Medication has a User to belong to
-  await seedUser();
-  await seedMedication();
-
-  process.exit(0);
-};
-
-seedAll();*/
 const sequelize = require('../config/connection');
 
+// 2 databases for the Med Manager app: User and Medication.
 const { User, Medication } = require('../models');
 
 const userData = require('./userData.json');
 const medicationData = require('./medicationData.json');
 
+// seedDatabase uses the sequelize bulkCreate to insert data into the Med Manager's
+// databases to use for testing.
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
