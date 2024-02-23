@@ -2,12 +2,12 @@
     --primary: #7c93c3;
     --secondary: #eef5ff;
     --tertiary: #010e0b;
-    --quatrinary: #a25772;
     --light: white;
     --dark: #071952;
     --error: rgb(228, 46, 1);
     --border-radius: 0.3rem;
-  }
+  } 
+  
   
   body {
     font-family: Arial;
@@ -17,9 +17,9 @@
     min-height: 100vh;
     justify-content: flex-start;
     background-color: var(--quatrinary);
-  }
+  } 
 
-  .card-header{
+ /* .card-header{
     background-color: rgb(27, 141, 248);
     text-align: center;
     padding: 2%;
@@ -27,12 +27,32 @@
   .card-body{
    
 background-color: rgb(0, 255, 247);
-  }
+  } */
+
+  .img-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.card {
+   
+}
   
   a {
     color: var(--dark);
     text-decoration: none;
-  }
+  } 
   
   a:visited {
     color: inherit;
@@ -59,43 +79,9 @@ background-color: rgb(0, 255, 247);
     text-align: left;
     color: var(--light);
   }
+  
+  
 
-
-  
-  .pages {
-    text-decoration: none; 
-    color: #333; 
-    padding: 5px 10px; 
-    margin-right: 10px; 
-    border: 1px solid #333; 
-    border-radius: 5px; 
-}
-
-
-.pages:hover {
-    background-color: #333; 
-    color: #fff; 
-}
-  
-  
-  nav {
-    display: flex;
-    background-color: var(--primary);
-  }
-  
-  nav a {
-    color: white;
-    font-weight: bolder;
-    padding: 14px 20px;
-    text-decoration: none;
-    text-align: center;
-  }
-  
-  nav a:hover {
-    color: var(--secondary);
-    background-color: var(--primary);
-  }
-  
   .main_view {
     flex: 4;
     background-color: var(--light);
@@ -138,7 +124,7 @@ background-color: rgb(0, 255, 247);
     display: inline;
     width: 100%;
     margin: 0.625rem 0;
-  }
+  } 
   
   .btn-no-style {
     background: none;
@@ -169,15 +155,15 @@ background-color: rgb(0, 255, 247);
     font-weight: bold;
   }
   
-  /* CARDS */
-  .card {
+  /* CARDS 
+   .card {
     margin: 20px;
     flex: 0 1 300px;
     border: 7px double var(--dark);
     border-radius: 10px;
     background-color: var(--light);
     color: var(--dark);
-  }
+  } */
   
   .login-card {
     margin: 50px;
@@ -200,7 +186,7 @@ background-color: rgb(0, 255, 247);
     background-color: #577a7c;
     color: var(--light);
   }*/
-  .card header {
+  /*.card header {
     color: var(--light);
     font-weight: bold;
     text-transform: uppercase;
@@ -215,7 +201,7 @@ background-color: rgb(0, 255, 247);
     font-size: 1.4rem;
     text-align: center;
     font-weight: bold;
-  }
+  } */
   
   .gallery-name {
     text-transform: uppercase;
