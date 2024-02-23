@@ -20,7 +20,7 @@ Medication.init(
       allowNull: false,
     },
     frequency: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     status: {
