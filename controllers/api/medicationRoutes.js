@@ -40,11 +40,14 @@ router.get('/:id', async (req, res) => {
   router.post('/', async (req, res) => {
     try {
   
-      const locationData = await Medication.create({
-        // Medication: req.body.Medication,
+      const medicationData = await Medication.create({
+        ...req.body,
+        user_id: req.session.user_id
       });
-      res.status(200).json(locationData);
+      console.log(medicationData)
+      res.status(200).json(medicationData);
     } catch (err) {
+      console.log(err)
       res.status(400).json(err);
     }
   });
