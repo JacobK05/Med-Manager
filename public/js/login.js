@@ -4,13 +4,13 @@ const loginFormHandler = async (event) => {
     
     const email = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
-  
+  console.log("in login form handler");
     if (email && password) {
       // rendered on the server with the views done by the login handlebars 
       // this is client side js
       // this gets called when the user enters info in the login form handler
       // this api call gets processed by the router/controller called user-routes.js, api/controllers folder
-      const response = await fetch('/api/userRouter/login', {
+      const response = await fetch('/api/userRouter/', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
@@ -19,10 +19,10 @@ const loginFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/medication');  // relocate to the home page
       } else {
-        alert('Failed to log in.');
+        alert('Invalid username or password. Please try again.');
       }
     }else {
-      alert('Failed to log in 2 nd.');
+      alert('Invalid username or password. Please try again.');
     }
   };
   
@@ -30,19 +30,25 @@ const loginFormHandler = async (event) => {
   const signupFormHandler = async (event) => {
     event.preventDefault();
   
-    const username = document.querySelector('#username-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
-  
-    if (username && email && password) {
+    const firstName = document.querySelector('#first-name').value.trim();
+    const middleName = document.querySelector('#middle-name').value.trim();
+    const lastName = document.querySelector('#last-name').value.trim();
+  console.log(email);
+  console.log(password);
+  console.log(firstName);
+  console.log(middleName);
+  console.log(lastName);
+    if (email && password) {
       const response = await fetch('/api/userRouter', {
         method: 'POST',
-        body: JSON.stringify({ username, email, password }),
+        body: JSON.stringify({ email, password, firstName, middleName, lastName }),
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/medication');
       } else {
         alert('Failed to sign up.');
       }
