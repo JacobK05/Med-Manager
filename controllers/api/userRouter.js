@@ -46,13 +46,12 @@ console.log(req.body);
       password: req.body.password,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      // user: req.body.userId,
     });
 
     // Save session information about the logged in state to use in the html to change
-    // Login to Logout and vice versa
+    // Login to Logout and vice versa.
     req.session.save(() => {
-      req.session.loggedIn = true;
+      req.session.logged_in = true;
       req.session.user_id = locationData.id;
       res.status(200).json(locationData);
     });
@@ -112,8 +111,9 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    // user and password are validated. Open a new session.
     req.session.save(() => {
-      req.session.loggedIn = true;
+      req.session.logged_in = true;
       req.session.user_id - dbUserData.id;
       console.log(
         'File: user-routes.js ~ line 62 ~ req.session.save ~ req.session.cookie',
@@ -134,7 +134,7 @@ router.post('/login', async (req, res) => {
 // If a POST request is made to /api/userRouter/logout, the function checks the logged_in state in the request.session object and destroys that session if logged_in is true.
 router.post('/logout', (req, res) => {
   console.log("in logout");
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });
