@@ -18,33 +18,32 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css"/> 
 
   </head>
-  <body class="p-3 m-0 border-0 bd-example m-0 border-0">
-
-    <!-- Example Code -->
-    
-        
+  <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">💊 Medication Manager</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div id="navbar" class="container-fluid">
+        <a id="title" class="navbar-brand" href="#">💊 Medication Manager</a>
+        
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 py-3">
-             <li class="nav-item d-flex flex-row align-items-center">
+             <li id="navbutton" class="nav-item d-flex flex-row align-items-center">
             {{#if logged_in}}
 <!--            <a href="/profile">profile</a> 
             <button class="no-button" id="logout">Logout</button>-->
               <a class="nav-link active"href="/logout" class="pages">Logout</a>
             {{else}}
+
+              <a id="loginbtn" class="nav-link active"href="/login" class="pages">Login</a>
+              <a id="signupbtn" class="nav-link active"href="/signup" class="pages">Signup</a>
+
               <a class="nav-link active"href="/login" class="pages">Login</a>
               <a class="nav-link active"href="/login" class="pages">Signup</a>
+
             {{/if}}
             </li>
           </ul>
-        </div>
+        
       </div>
     </nav>
+  
     <div class="width-50%">
       {{{body}}}
     </div>
