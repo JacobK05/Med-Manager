@@ -17,7 +17,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/medication"); // relocate to the home page
+      document.location.replace('/medication'); 
     } else {
       alert("Invalid username or password. Please try again.");
     }
