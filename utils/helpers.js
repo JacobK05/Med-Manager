@@ -9,3 +9,12 @@ module.exports = {
     },
   };
   
+  // const today = dayjs()
+  // $('#currentDay').text(today.format('dddd, MMM D, YYYY'));
+  //   var currentHour = (dayjs().hour())
+
+  //   setInterval(myTime, 1000);
+  //   function myTime() {
+  //     const d = new Date();
+  //     document.getElementById("currentTime").innerHTML = d.toLocaleTimeString();
+  //   }   

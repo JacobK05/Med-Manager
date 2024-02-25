@@ -42,6 +42,17 @@ Medication.init(
         key: 'id',
       },
     },
+    timeStamp: {
+      type: DataTypes.DATE,
+
+    },
+    wasTaken: {
+        type: DataTypes.VIRTUAL,
+        get() {
+          return this.status === 'taken';
+        },
+      }
+    
   },
   {
     sequelize,
