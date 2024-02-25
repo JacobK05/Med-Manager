@@ -5,12 +5,14 @@ const loginFormHandler = async (event) => {
     const email = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
   console.log("in login form handler");
+  console.log(email);
+  console.log(password);
     if (email && password) {
       // rendered on the server with the views done by the login handlebars 
       // this is client side js
       // this gets called when the user enters info in the login form handler
       // this api call gets processed by the router/controller called user-routes.js, api/controllers folder
-      const response = await fetch('/api/userRouter/', {
+      const response = await fetch('/api/userRouter/login', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
