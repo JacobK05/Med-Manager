@@ -3,6 +3,7 @@ const routes = require('express').Router();
 
 // Import the index.js from 'api' folder
 const apiRoutes = require('./api');
+
 const homeRoutes = require('./home-routes');
 const medicationRoutes = require('./medication-routes');
 // const addMedication = require('./addMedication-routes');

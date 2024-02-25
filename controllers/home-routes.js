@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Medication, User } = require("../models");
+//const { Medication, User } = require("../models");
 
 // Login route
 router.get("/login", (req, res) => {
@@ -22,7 +22,7 @@ router.get("/signup", (req, res) => {
 
 // Home page
 router.get("/", async (req, res) => {
-  res.render("welcome");
+  res.render("welcome", { logged_in: req.session.logged_in});
 });
 
 module.exports = router;

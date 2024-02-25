@@ -1,11 +1,7 @@
-
 const nodemailer = require("nodemailer");
 
-
-function sendMail(recipientEmail, subject, message ){
-
-
-const transporter = nodemailer.createTransport({
+function sendMail(recipientEmail, subject, message) {
+  const transporter = nodemailer.createTransport({
     service: "Gmail",
     host: "smtp.gmail.com",
     port: 465,
@@ -19,8 +15,7 @@ const transporter = nodemailer.createTransport({
     from: "systemmedication@gmail.com",
     to: recipientEmail,
     subject: subject,
-    text: message
-    ,
+    text: message,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
@@ -31,6 +26,9 @@ const transporter = nodemailer.createTransport({
     }
   });
 }
-sendMail(recipientEmail, subject, message );
-// sendMail('6513345038@tmomail.net', 'alert', 'This is alert message that for test  ' );
-// sendMail('vicki.dunlop@gmail.com', 'alert', 'This is alert message that for test  ' );
+// Temp code until Teddy finishes so I don't get error messages
+const recipientEmail= "";
+const subject= "";
+const message = "";
+
+sendMail(recipientEmail, subject, message);

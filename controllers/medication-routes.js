@@ -21,7 +21,9 @@ router.get('/',  async (req, res) => {
   });
   
 router.get('/addMedication', (req, res) => {
-  res.render('addMedication')
+  res.render('addMedication', {
+    logged_in: req.session.logged_in,
+  });
 })
 
 
