@@ -51,6 +51,32 @@ router.get('/:id', async (req, res) => {
       res.status(400).json(err);
     }
   });
+
+  // UPDATE a Medication
+  router.put('/:id', async (req, res) => {
+    const updatedMedication = req.body;
+    if(updatedMedication.status === 'taken' &&  updatedMedication.updatedStatus === true) {
+      updatedMedication.timeStamp = new Date();
+    } else if(updatedMedication.status === 'not-taken' &&  updatedMedication.updatedStatus === true) {
+      updatedMedication.timeStamp = null;
+    }
+    try {
+      const medicationData = await Medication.update(updatedMedication, {
+        where: {
+          id: req.params.id,
+        },
+      });
+  
+      if (!medicationData) {
+        res.status(404).json({ message: '#' });
+        return;
+      }
+  
+      res.status(200).json(medicationData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
   
   // DELETE a Medication
   router.delete('/:id', async (req, res) => {

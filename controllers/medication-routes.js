@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Medication, User} = require('../models');
 const withAuth = require('./../utils/auth');
+const dayjs = require('dayjs');
 
 
 // medication route 
@@ -11,7 +12,12 @@ router.get('/',  async (req, res) => {
     const medicationData = await Medication.findAll({
       include: [{ model: User }],
     });
-    const medications = medicationData.map(medication => medication.get({ plain: true }))
+    const medications = medicationData.map(medication => {
+
+      medication = medication.get({ plain: true })
+      medication.timeStamp = medication.timeStamp ? dayjs(medication.timeStamp).format('M/DD' + ' ' +'h:mm A') : "";
+      return medication;
+    })
     console.log(medications)
     res.status(200).render('medication', {medications});
   } catch (err) {
@@ -26,8 +32,20 @@ router.get('/addMedication', (req, res) => {
   });
 })
 
+router.get('/:id', async (req, res) => {
 
-
+  try {
+    const medicationData = await Medication.findByPk(req.params.id, {
+      include: [{ model: User }],
+    });
+    const medication = medicationData.get({ plain: true });
+    res.status(200).render('editMedication', medication);
+  }
+  catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+})
 
 // router.get('/', (req, res) => {
 //   res.render('medication', {medication: req.session.medication,

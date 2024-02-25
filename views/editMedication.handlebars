@@ -1,0 +1,42 @@
+<section>
+  <h4>Edit Medication</h4>
+  <table class="table table-success table-striped-columns ,table table-bordered">
+        <thead>
+            <tr class="table-primary ">
+                <th scope="col">#</th>
+                <th scope="col">Medication Info</th>
+                {{!-- <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th> --}}
+            </tr>
+        </thead>
+   </table>
+
+
+   <form data-id="{{id}}" id="editmeds">
+     <div class="form-group">
+        <label for="generic_name">Name:</label>
+        <input value='{{genericName}}' class="form-input" type="text" id="generic_name" />
+      </div>
+      <div class="form-group">
+        <label for="dosage">Dosage:</label>
+        <input value='{{dosage}}' class="form-input" type="text" id="dosage" />
+      </div>
+      <div class="form-group">
+        <label for="frequency">Frequency:</label>
+        <input value='{{frequency}}' class="form-input" type="text" id="frequency" />
+      </div>
+         <div class="form-group">
+        <label for="description">Description:</label>
+        <input value='{{description}}' class="form-input" type="text" id="description" />
+      </div>
+         <div class="form-group">
+        <label for="note_from_user">Notes for Use:</label>
+        <input value='{{noteFromUser}}' class="form-input" type="text" id="note_from_user" />
+      </div>
+       <button class="btn btn-primary" type="submit">Update</button>
+   </form>     
+</section>
+
+<script src="/js/editMedication.js"></script>
