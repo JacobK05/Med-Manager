@@ -40,12 +40,41 @@ router.get('/:id', async (req, res) => {
   router.post('/', async (req, res) => {
     try {
   
-      const locationData = await Medication.create({
-        // Medication: req.body.Medication,
+      const medicationData = await Medication.create({
+        ...req.body,
+        user_id: req.session.user_id
       });
-      res.status(200).json(locationData);
+      console.log(medicationData)
+      res.status(200).json(medicationData);
     } catch (err) {
+      console.log(err)
       res.status(400).json(err);
+    }
+  });
+
+  // UPDATE a Medication
+  router.put('/:id', async (req, res) => {
+    const updatedMedication = req.body;
+    if(updatedMedication.status === 'taken' &&  updatedMedication.updatedStatus === true) {
+      updatedMedication.timeStamp = new Date();
+    } else if(updatedMedication.status === 'not-taken' &&  updatedMedication.updatedStatus === true) {
+      updatedMedication.timeStamp = null;
+    }
+    try {
+      const medicationData = await Medication.update(updatedMedication, {
+        where: {
+          id: req.params.id,
+        },
+      });
+  
+      if (!medicationData) {
+        res.status(404).json({ message: '#' });
+        return;
+      }
+  
+      res.status(200).json(medicationData);
+    } catch (err) {
+      res.status(500).json(err);
     }
   });
   

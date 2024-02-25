@@ -36,10 +36,11 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// CREATE a new user
+// CREATE a new user (Signup)
 router.post('/', async (req, res) => {
   try {
 console.log("in single slash post");
+console.log(req.body);
     const locationData = await User.create({
       email: req.body.email,
       password: req.body.password,

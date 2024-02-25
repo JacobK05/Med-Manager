@@ -1,138 +1,65 @@
-
-<!-- These don't need the html tag because the way views work in handlebars,
-these are just partials of what the page is going to include, they are all rendered 
-inside a layout which is the main.handlebars file under the folder layouts -->
-<!-- These don't need the html tag because the way views work in handlebars,
-these are just partials of what the page is going to include, they are all rendered 
-inside a layout which is the main.handlebars file under the folder layouts -->
-{{!-- <link rel="stylesheet" href="./login.css">? --}}
-
- 
-
+<!-- Login/Signup View -->
 
 <div class="container" id="container">
-	<div class="form-container sign-up-container">
-		<form action="#">
-			<h3>SIGN UP</h3>
-			<input type="text" placeholder="First Name" />
-			<input type="text" placeholder="Middle Name" />
-			<input type="text" placeholder="Last Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		 <form class="form login-form">
-			<h1>Sign in</h1>
-			<div class="social-container">
-			</div>
-			<input id="email-login" type="email" placeholder="Email" />
-			<input id="password-login" type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-			<button type="submit"> Sign In</button>
-				 {{!-- <a href="/medication">Sign In</a> --}}
-			
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Hello, New User!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp">Sign Up</button>
-			</div>
-		</div>
-	</div>
+  <div class="form-container sign-up-container">
+<!--    <form class="form signup-form" action="#">-->
+  <form class="form signup-form">
+      <h1>Sign Up</h1>
+<!--      <input type="text" placeholder="First Name" />
+      <input type="text" placeholder="Middle Name" />
+      <input type="text" placeholder="Last Name" />-->
+            <input id="first-name" type="text" placeholder="First Name" />
+            <input id="middle-name" type="text" placeholder="Middle Name" />
+            <input id="last-name" type="text" placeholder="Last Name" />
+            <input id="email-signup" type="email" placeholder="Email" />
+            <input id="password-signup" type="password" placeholder="Password" />
 
+<!--      <button>Sign Up</button>-->
+<button type="submit">Sign Up</button>
+    </form>
+  </div>
 
-=======
-=======
-<div class="row justify-space-between-md">
-  <div class="login-card w-50">
-    <h2 class="page-title">Login</h2>
+  <!-- Login Side -->
+  <div class="form-container sign-in-container">
     <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">Email:</label>
-        <input class="form-input" type="text" id="email-login" />
+      <h1>Log In</h1>
+      <div class="social-container">
       </div>
-      <div class="form-group">
-        <label for="password-login">Password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <section class="form-group2">
-        <div class="form-group2">
-          <button class="btn btn-primary" type="submit">login</button>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-
-<div class="container">
-  <div class="row justify-content-md-center mt-5">
-    <div class="text-center"> 
-      <span role="img" aria-label="Pill"> 💊 </span>
-      <h1 class="h3 mb-3 fw-normal"> Please sign in</h1>
-    </div>
-    <div class="login-card col-md-6 border border-primary border-dark p-4">
-      <h2 class="page-title">Login</h2>
-      <form class="form login-form">
-        <div class="form-group">
-          <label for="email-login">Email:</label>
-          <input class="form-control" type="text" id="email-login" />
-
-  
-</div>
-<style>
-  
-</style>
-
-
-
-
-  <script id="rendered-js">
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
-
-signUpButton.addEventListener('click', () => {
-  container.classList.add("right-panel-active");
-});
-
-signInButton.addEventListener('click', () => {
-  container.classList.remove("right-panel-active");
-});
-//# sourceURL=pen.js
-    </script>
-  
-
-<script src="/js/login.js"></script>
-
-=======
+      <input id="email-login" type="email" placeholder="Email" />
+      <input id="password-login" type="password" placeholder="Password" />
+      <!--			<a href="#">Forgot your password?</a>-->
+      <button type="submit">Log In</button>
+ <!--     {{! <a href="/medication">Sign In</a> }}-->
 
     </form>
   </div>
+
+  <!-- Overlay -->
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>Already Signed Up?</h1>
+        <button class="ghost" id="signIn">Log In</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>Sign Up Here</h1>
+        <button class="ghost" id="signUp">Sign Up</button>
+      </div>
+    </div>
+  </div>
+
+  <script id="rendered-js">
+    const signUpButton = document.getElementById('signUp'); 
+    const signInButton = document.getElementById('signIn'); 
+    const container = document.getElementById('container'); 
+    signUpButton.addEventListener('click', () => { container.classList.add("right-panel-active"); });
+    signInButton.addEventListener('click', () => { container.classList.remove("right-panel-active");
+  }); 
+  //# sourceURL=pen.js
+  </script>
   
-  </section>
-    
-<script src="./js/login.js"></script>
-{{!-- <script src="./login.js"></script> --}}
-
-
+</div>
 
 <script src="./js/login.js"></script>
-
-</body>
-</html>
+{{! <script src="./login.js"></script> }}
 
