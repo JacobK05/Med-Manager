@@ -56,6 +56,11 @@ background-color: rgb(0, 255, 247);
     margin: 50px;
     border-radius: 5px;
   }
+  .divider {
+    border-right: 5px solid black; 
+    height: 20px; 
+    margin: 0 10px; 
+  }
 
   #card-btn:hover{
     background-color: #f3d350;
