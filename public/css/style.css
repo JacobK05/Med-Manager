@@ -238,7 +238,32 @@ background-color: rgb(0, 255, 247);
     padding: 10px 20px;
     font-weight: bold;
   }
+
+  #med-header{
+    padding-left: 10px;
+  }
+
+  #logout{
+    color:#010e0b;
+    font-size: 20px;
+    margin-left: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5px;
+  }
   
+  #logout:hover{
+    background-color: #90ccf4;
+    border-radius: 10px;
+  }
+
+  #med-btn{
+    margin-left: 10px;
+  }
+
+  #med-btn:hover{
+    background-color: #f78888;
+    border-radius: 10px;
+  }
   /* CARDS 
    .card {
     margin: 20px;
