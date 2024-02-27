@@ -27,7 +27,7 @@ After you clone the repository, run npm i to install all the dependencies. You w
 You can use the deployed link or run the website through localhost, after you create an account you will be directed to the medication page where you can add and delete as you please.
 
 ## Contributors
-Jacob Kaufenberg, Jen Hill, Teddy Assefa, Maria Jones-Suarez
+Jacob Kaufenberg, Vicki Dunlop  Jen Hill, Teddy Assefa, Maria Jones-Suarez
 
 ## Information
 Github: JacobK05
